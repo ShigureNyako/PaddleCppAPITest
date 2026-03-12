@@ -1,5 +1,9 @@
 #include <ATen/ATen.h>
-#include <ATen/Indexing.h>
+#if USE_PADDLE_API
+#include <ATen/indexing.h>
+#else
+#include <ATen/TensorIndexing.h>
+#endif
 #include <ATen/core/Tensor.h>
 #include <ATen/ops/arange.h>
 #include <gtest/gtest.h>
