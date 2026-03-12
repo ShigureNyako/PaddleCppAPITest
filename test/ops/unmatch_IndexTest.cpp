@@ -1,6 +1,6 @@
 #include <ATen/ATen.h>
 #include <ATen/core/Tensor.h>
-#include <ATen/indexing.h>
+#include <ATen/TensorIndexing.h>
 #include <ATen/ops/index.h>
 #include <ATen/ops/zeros.h>
 #include <gtest/gtest.h>

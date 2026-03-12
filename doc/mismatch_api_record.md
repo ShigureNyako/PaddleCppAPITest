@@ -95,13 +95,12 @@
 
 # at::indexing（Slice / EllipsisIndexType）
 
-> Paddle 头文件：`ATen/indexing.h`
+> Paddle 头文件：`ATen/TensorIndexing.h`
 > PyTorch 头文件：`ATen/TensorIndexing.h`
 
 ## 差异点列表
 
-1.  **头文件路径不同**：PyTorch 为 `ATen/TensorIndexing.h`；Paddle compat 为 `ATen/indexing.h`
-2.  **`Tensor::operator[](Slice)` 不支持**：PyTorch 的 `Tensor::operator[]` 接受 `at::indexing::Slice`；Paddle compat 的 `operator[]` 仅重载 `int64_t`，传入 `Slice` 会编译报错
+1.  **`Tensor::operator[](Slice)` 不支持**：PyTorch 的 `Tensor::operator[]` 接受 `at::indexing::Slice`；Paddle compat 的 `operator[]` 仅重载 `int64_t`，传入 `Slice` 会编译报错
 3.  **多维 Slice 索引写法不同**：
     - PyTorch：`t.index({Slice(0,2), Slice(1,3)})` —— 接受 `std::initializer_list<TensorIndex>`
     - Paddle：`t.index(std::vector<at::indexing::Slice>{Slice(0,2), Slice(1,3)})` —— 仅重载 `std::vector<Slice>`
